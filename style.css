@@ -1,0 +1,321 @@
+/* Плавный переход фона */
+body {
+    transition: background-color 1s ease;
+    margin: 0;
+    padding: 0;
+}
+
+#photoshopButton {
+    background-image: url('photos/photoshop.png'); 
+}
+
+#illustratorButton {
+    background-image: url('photos/illustrator.png'); 
+}
+
+#afterEffectsButton {
+    background-image: url('photos/Ae.png'); 
+}
+
+#premiereProButton {
+    background-image: url('photos/ap.png'); 
+}
+
+#animateButton{
+    background-image: url('photos/an.png'); 
+}
+
+#lightroomButton{
+    background-image: url('photos/lt.png'); 
+}
+
+#lightroomClassicButton{
+    background-image: url('photos/ltc.png'); 
+}
+
+#auditionButton{
+    background-image: url('photos/au.png');
+}
+
+#characterAnimatorButton{
+    background-image: url('photos/ch.png'); 
+}
+
+#inCopyButton{
+    background-image: url('photos/ic.png'); 
+}
+
+#dreamweaverButton{
+    background-image: url('photos/dw.png'); 
+}
+
+#indesignButton{
+    background-image: url('photos/id.png'); 
+}
+
+#mediaEncodeButton{
+    background-image: url('photos/me.png');     
+}
+
+#dimensionButton{
+    background-image: url('photos/dn.png');     
+}
+
+
+/* Прямоугольник слева */
+#leftRectangle {
+    transition: background-color 1s ease;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 100%;
+    background-color: #e5e5e5;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* Центрируем кнопки по горизонтали */
+    justify-content: flex-start; /* Размещаем первую кнопку сверху */
+    overflow-x: hidden; /* Скрываем горизонтальный скролл */
+    overflow-y: auto; /* Оставляем вертикальный скролл */
+    scrollbar-width: thin; /* Для Firefox */
+    scrollbar-color: #c1c1c1 #e5e5e5; /* Для Firefox */
+
+    /* Убираем padding-top, чтобы первая кнопка была прижата к верхнему краю */
+}
+
+/* Блок с квадратными кнопками */
+#buttonContainer {
+    flex-direction: column;  /* Размещаем кнопки вертикально */
+    justify-content: center; /* Центрируем кнопки по вертикали */
+    align-items: center;     /* Центрируем кнопки по горизонтали */
+    height: 100%;            /* Занимает всю высоту прямоугольника */
+}
+
+/* Первая кнопка будет круглой */
+.roundButton {
+    border-radius: 50%; /* Округляем кнопку */
+    width: 65px; /* Устанавливаем фиксированную ширину для круглой кнопки */
+    height: 65px; /* Устанавливаем такую же высоту для круглой формы */
+    background-image: url('photos/1efb49d4-fc96-6ac0-1f27-532d1b53cb33.png'); /* Указываем путь к изображению */
+    background-size: cover; /* Изображение покрывает всю кнопку */
+    background-position: center; /* Центрируем изображение */
+    background-repeat: no-repeat; /* Не повторяем изображение */
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px; /* Уменьшаем размер текста */
+    margin-top: 5px; /* Небольшой отступ сверху */
+    margin-bottom: 10px; /* Отступ снизу */
+    flex-shrink: 0; /* Останавливаем сжатие кнопки */
+    cursor: pointer;
+}
+
+.roundButton:hover {
+    filter: brightness(1);
+    box-shadow: 0 0 10px white;
+}
+
+/* Кнопки внутри блока с квадратными кнопками */
+.squareButton {
+    width: 55px; /* Устанавливаем фиксированную ширину */
+    height: 55px; /* Устанавливаем фиксированную высоту для квадратной формы */
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    margin: 10px 0; /* Отступ между кнопками */
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px; /* Уменьшаем размер текста */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#centerText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    font-weight: bold;
+    color: #c5c5c5;
+    opacity: 1;
+    font-family: 'Roboto', sans-serif;
+}
+
+#fullScreenSquare {
+    position: fixed;
+    top: 0;
+    left: 80px; /* Начинаем от 80px, после левого прямоугольника */
+    width: calc(100% - 80px); /* Занимает оставшееся пространство */
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0); /* Прозрачный фон */
+    display: flex;
+    flex-direction: column; /* Располагаем элементы в столбец */
+    align-items: center; /* Центрируем элементы */
+    justify-content: center; /* Центрируем по вертикали */
+    padding: 3%;
+    box-sizing: border-box;
+    color: white;
+    overflow: auto;
+}
+
+/* Картинка внутри квадратного блока */
+.imageInsideSquare {
+    width: min(200px, 20vw);  /* Максимум 200px, но уменьшается до 20% экрана */
+    height: min(200px, 20vw); /* Высота тоже адаптируется */
+    object-fit: cover;
+    margin-bottom: 2%;
+    border-radius: 25%;
+}
+
+/* Поле с текстом (увеличивается в ширину) */
+.textInsideSquare {
+    width: 35%; /* Стандартная ширина */
+    max-width: 800px; /* Ограничение, чтобы не было слишком широким */
+    font-size: 20px; /* Размер текста остается фиксированным */
+    line-height: 1.5;
+    word-wrap: break-word;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 2%; 
+    transition: width 0.5s ease; /* Плавное изменение ширины */
+}
+
+#instalButton { 
+    width: 35%;
+    height: 40px;
+    max-width: 800px;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 20px;
+    border: none;
+    font-family: 'Roboto', sans-serif;
+    transition: width 0.5s ease;
+    cursor: pointer;
+
+    --button-color: #4CAF50;
+    background-color: var(--button-color);
+    box-shadow: 0 0 0 transparent;
+}
+
+#instalButton:hover {
+    filter: brightness(1.5);
+    box-shadow: 0 0 20px var(--button-color);
+}
+
+/* Увеличиваем ширину контейнера с текстом и кнопки при уменьшении экрана */
+@media (max-width: 1600px) {
+    .textInsideSquare, #instalButton {
+        width: 40%;
+    }
+}
+
+@media (max-width: 1400px) {
+    .textInsideSquare, #instalButton {
+        width: 45%;
+    }
+}
+
+@media (max-width: 1200px) {
+    .textInsideSquare, #instalButton {
+        width: 50%;
+    }
+}
+
+@media (max-width: 1000px) {
+    .textInsideSquare, #instalButton {
+        width: 55%;
+    }
+}
+
+@media (max-width: 800px) {
+    .textInsideSquare, #instalButton {
+        width: 60%;
+    }
+}
+
+@media (max-width: 600px) {
+    .textInsideSquare, #instalButton {
+        width: 65%;
+    }
+}
+
+@media (max-width: 400px) {
+    .textInsideSquare, #instalButton {
+        width: 75%;
+    }
+}
+
+
+#rightRectangle {
+    position: fixed;
+    top: 0;
+    left: 45%; /* Исходное положение */
+    width: 1920px;
+    height: 1080px;
+    background-image: url('photos/ps1.png');
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+    transition: left 1s ease; /* Плавное смещение */
+    border-radius: 10px;
+}
+
+#rightRectangle, .imageInsideSquare, #instalButton, .textInsideSquare{
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+/* Когда добавляем класс 'visible', элементы становятся видимыми */
+#rightRectangle.visible, .imageInsideSquare.visible, #instalButton.visible, .textInsideSquare.visible{
+    opacity: 1;
+}
+/* Медиа-запросы для смещения вправо при уменьшении экрана */
+@media (max-width: 1600px) {
+    #rightRectangle {
+        left: 50%;
+    }
+}
+
+@media (max-width: 1400px) {
+    #rightRectangle {
+        left: 55%;
+    }
+}
+
+@media (max-width: 1200px) {
+    #rightRectangle {
+        left: 60%;
+    }
+}
+
+@media (max-width: 1000px) {
+    #rightRectangle {
+        left: 65%;
+    }
+}
+
+@media (max-width: 800px) {
+    #rightRectangle {
+        left: 70%;
+    }
+}
+
+@media (max-width: 600px) {
+    #rightRectangle {
+        left: 75%;
+    }
+}
+
+@media (max-width: 400px) {
+    #rightRectangle {
+        left: 80%;
+    }
+}
