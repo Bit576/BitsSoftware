@@ -97,7 +97,7 @@ body {
     border-radius: 50%; /* Округляем кнопку */
     width: 65px; /* Устанавливаем фиксированную ширину для круглой кнопки */
     height: 65px; /* Устанавливаем такую же высоту для круглой формы */
-    background-image: url('photos/1efb49d4-fc96-6ac0-1f27-532d1b53cb33.png'); /* Указываем путь к изображению */
+    background-image: url('https://avatars.githubusercontent.com/u/205944209?v=4'); /* Указываем путь к изображению */
     background-size: cover; /* Изображение покрывает всю кнопку */
     background-position: center; /* Центрируем изображение */
     background-repeat: no-repeat; /* Не повторяем изображение */
@@ -318,4 +318,5 @@ body {
     #rightRectangle {
         left: 80%;
     }
+
 }
